@@ -85,7 +85,8 @@ public class RemoteVideoRecorderHelper {
     }
 
     public static String updateLastAction(String host, String session, String action) {
-        URIBuilder builder = new URIBuilder();
+	return "";
+        /*URIBuilder builder = new URIBuilder();
         builder.setScheme("http");
         builder.setHost(host);
         builder.setPort(RuntimeConfig.getGridExtrasPort());
@@ -113,7 +114,7 @@ public class RemoteVideoRecorderHelper {
         } catch (IOException e) {
             logger.error(errorMessage, e);
             return "";
-        }
+        }*/
 
     }
 

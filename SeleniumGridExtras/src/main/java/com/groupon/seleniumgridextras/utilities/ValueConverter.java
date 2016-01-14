@@ -11,7 +11,9 @@ public class ValueConverter {
         }
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+	String result = String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+	result = result.replace(",", ".");
+	return result;
     }
 
 

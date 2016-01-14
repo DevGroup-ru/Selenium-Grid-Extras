@@ -162,7 +162,7 @@ public class SetupTeardownProxy extends DefaultRemoteProxy implements TestSessio
             stopVideoRecording(session);
 
             // Download video only if 'videos_to_keep' is greater than 0
-            if (RuntimeConfig.getConfig() == null) {
+/*            if (RuntimeConfig.getConfig() == null) {
                 RuntimeConfig.load(false);
             }
             if (RuntimeConfig.getConfig().getVideoRecording().getVideosToKeep() > 0) {
@@ -170,7 +170,7 @@ public class SetupTeardownProxy extends DefaultRemoteProxy implements TestSessio
                         new VideoDownloaderCallable(
                                 session.getExternalKey().getKey(),
                                 session.getSlot().getRemoteURL().getHost()));
-            }
+            }*/
         }
 
         CommonThreadPool.startCallable(

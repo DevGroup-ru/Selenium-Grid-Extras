@@ -405,7 +405,13 @@ public class Config {
     }
 
     public int getHttpRequestTimeout() {
-        return (Integer) getConfigMap().get(HTTP_REQUEST_TIMEOUT);
+	Integer num = 0;
+	try {
+	    num = (Integer) getConfigMap().get(HTTP_REQUEST_TIMEOUT);
+	} catch (Exception e) {
+	    num = 60000;
+	}
+        return num;//(Integer) getConfigMap().get(HTTP_REQUEST_TIMEOUT);
     }
 
     public void setHttpRequestTimeout(int timeout) {
