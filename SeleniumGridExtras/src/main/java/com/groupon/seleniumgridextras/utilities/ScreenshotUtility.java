@@ -26,7 +26,8 @@ public class ScreenshotUtility {
     BufferedImage cursor = null;
     try {
       cursor = ImageIO.read(new File("cursor.gif"));
-      img.createGraphics().drawImage(cursor, p.x, p.y, null);
+      PointerInfo pointer = MouseInfo.getPointerInfo();
+      img.createGraphics().drawImage(cursor, (int) pointer.getLocation().getX(), (int) pointer.getLocation().getY(), null);
     } catch (IOException e) {
       e.printStackTrace();
     }
