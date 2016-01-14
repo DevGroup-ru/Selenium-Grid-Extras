@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -21,7 +22,15 @@ public class ScreenshotUtility {
   public static BufferedImage getFullScreenshot() throws AWTException {
     Robot robot = new Robot();
     Rectangle captureSize = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-    return robot.createScreenCapture(captureSize);
+    BufferedImage img = robot.createScreenCapture(captureSize);
+    BufferedImage cursor = null;
+    try {
+      cursor = ImageIO.read(new File("cursor.gif"));
+      img.createGraphics().drawImage(cursor, p.x, p.y, null);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return img;
   }
 
   public static BufferedImage getResizedScreenshot(int width, int height) throws AWTException {
