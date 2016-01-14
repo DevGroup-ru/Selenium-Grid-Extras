@@ -26,8 +26,13 @@ public class ScreenshotUtility {
     BufferedImage cursor = null;
     try {
       cursor = ImageIO.read(new File("cursor.png"));
-      PointerInfo pointer = MouseInfo.getPointerInfo();
-      img.createGraphics().drawImage(cursor, (int) pointer.getLocation().getX(), (int) pointer.getLocation().getY(), null);
+      Point pointer = MouseInfo.getPointerInfo().getLocation();
+      logger.info("Pointer: " + pointer.x + " / " + pointer.y);
+      // test move
+      MouseInfo.getPointerInfo().getLocation().move(100,100);
+      pointer = MouseInfo.getPointerInfo().getLocation();
+      logger.info("Moved Pointer: " + pointer.x + " / " + pointer.y);
+      img.createGraphics().drawImage(cursor, pointer.x, pointer.y, null);
     } catch (IOException e) {
       e.printStackTrace();
     }
