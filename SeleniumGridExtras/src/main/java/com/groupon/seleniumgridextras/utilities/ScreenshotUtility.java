@@ -25,7 +25,7 @@ public class ScreenshotUtility {
     BufferedImage img = robot.createScreenCapture(captureSize);
     BufferedImage cursor = null;
     try {
-      cursor = ImageIO.read(new File("cursor.gif"));
+      cursor = ImageIO.read(new File("cursor.png"));
       PointerInfo pointer = MouseInfo.getPointerInfo();
       img.createGraphics().drawImage(cursor, (int) pointer.getLocation().getX(), (int) pointer.getLocation().getY(), null);
     } catch (IOException e) {
